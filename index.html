@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cooper | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #f5fff6, #ffffff);
+      color: #2e7d32;
+      scroll-behavior: smooth;
+    }
+
+.container {
+  margin: 0 auto;
+  background: linear-gradient(to bottom, #388e3c, #ffffff, #ffffff, #ffffff, #ffffff);
+}
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-image: url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlJTIwZm9yZXN0fGVufDB8fDB8fHww');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: white;
+      z-index: 1;
+    }
+
+    header .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 100, 0, 0.5);
+      z-index: -1;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      animation: glow 2s infinite alternate;
+      z-index: 2;
+      position: relative;
+      user-select: none;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: #d0f0c0;
+      z-index: 2;
+      position: relative;
+      user-select: none;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #81c784; }
+      to { text-shadow: 0 0 20px #388e3c; }
+    }
+
+.stars {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0; /* changed from -2 to 0 */
+}
+
+    .star {
+      position: absolute;
+      background: lightgreen;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    section {
+      padding: 4rem 1rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #2e7d32;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      text-align: center;
+      color: #444;
+    }
+
+    /* Skills */
+    .skill-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .skill {
+      margin: 1rem 0;
+    }
+
+    .skill-label {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .progress-bar {
+      background: #e0e0e0;
+      border-radius: 20px;
+      height: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #81c784, #388e3c);
+      width: 0%;
+      border-radius: 20px;
+      transition: width 2s ease;
+    }
+
+    /* My Life */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      background: #f1f8e9;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .gallery-item .caption {
+      padding: 1rem;
+      font-size: 1rem;
+      color: white;
+      background: #2e7d32;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      color: #2e7d32;
+      font-weight: bold;
+      text-decoration: none;
+      border: 2px solid #2e7d32;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .contact a:hover {
+      background: #2e7d32;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <!-- Hero -->
+  <header>
+    <div class="overlay"></div>
+    <h1>Cooper</h1>
+    <p>Creative Developer & Designer</p>
+  </header>
+
+  <div class="container">
+
+    <!-- About -->
+    <section id="about">
+      <h2 style="color: white !important;">About Me</h2>
+      <p>I’m a passionate web developer who loves turning ideas into reality. I love working in a team and really enjoy the progress made while building a website. I have also experience with Discord Bots and loads of different website styles.</p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skill-container">
+        <div class="skill">
+          <div class="skill-label">HTML</div>
+          <div class="progress-bar"><div class="progress-fill" data-percent="85%"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-label">CSS</div>
+          <div class="progress-bar"><div class="progress-fill" data-percent="75%"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-label">JavaScript</div>
+          <div class="progress-bar"><div class="progress-fill" data-percent="35%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- My Life -->
+    <section id="life">
+      <h2>My Gaming Life</h2>
+      <p>A peek into who I am outside of work — the games i love to play.</p>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="https://britishesports.org/wp-content/uploads/2021/08/ts-apex-legends-free-to-play-battle-royale_0.jpg" alt="Nature" />
+          <div class="caption">I love shooter games but this is probably my most favorite one.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://www.rocketleague.com/images/keyart/rl_evergreen.jpg" alt="Coffee" />
+          <div class="caption">I always play this game when I am bored or need to relax.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_Minecraft.jpg" alt="Dog" />
+          <div class="caption">I love the building part in this game it really shows my creativity.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <h2>Contact Me</h2>
+      <p>Want to say hi or collaborate? I’d love to connect with you!</p>
+      <a href="https://discord.com/users/1262336556966871101">My Discord</a>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Cooper. All rights reserved.
+  </footer>
+
+  <script>
+    // Floating stars
+    const stars = document.getElementById('stars');
+    function createStar() {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.animationDuration = (3 + Math.random() * 3) + 's';
+      stars.appendChild(star);
+      setTimeout(() => star.remove(), 6000);
+    }
+    setInterval(createStar, 300);
+
+    // Reveal on scroll
+    const sections = document.querySelectorAll('section');
+    function reveal() {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < trigger) sec.classList.add('visible');
+      });
+    }
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', () => {
+      reveal();
+      document.querySelectorAll('.progress-fill').forEach(bar => {
+        const percent = bar.getAttribute('data-percent');
+        bar.style.width = percent;
+      });
+    });
+  </script>
+</body>
+</html>
